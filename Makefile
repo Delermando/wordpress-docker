@@ -5,8 +5,14 @@ up:
 down:
 	docker rm wordpress mysql55-wordpress;
 
+downAll:
+	docker rm `docker ps -a -q`
+
 kill:
 	docker kill wordpress mysql55-wordpress;
+
+killAll:
+	docker kill `docker ps -a -q`;
 
 restart:
 	docker restart mysql55-wordpress wordpress ;
