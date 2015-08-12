@@ -12,3 +12,4 @@
 [Wed Aug 05 15:02:10 2015] [error] [client 172.17.42.1] File does not exist: /var/www/html/astrologia
 [Wed Aug 05 15:02:11 2015] [error] [client 172.17.42.1] File does not exist: /var/www/html/favicon.ico
 [Wed Aug 05 15:02:12 2015] [error] [client 172.17.42.1] File does not exist: /var/www/html/astrologia
+[Mon Aug 10 15:24:02 2015] [error] [client 172.17.42.1] File does not exist: /var/www/html/favicon.ico, referer: http://local.workcopy.com.br/
