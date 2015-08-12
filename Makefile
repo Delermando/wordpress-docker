@@ -17,3 +17,12 @@ mysqlIp:
 status:
 	docker ps -a;
 
+connectMySql:
+	docker exec -it mysql55-wordpress bash;
+
+connectWordpress:
+	docker exec -it wordpress bash;
+
+addHost:
+	echo "Rode este comando logado como root"
+	echo "0.0.0.0 local.workcopy.com.br" >> /etc/hosts
