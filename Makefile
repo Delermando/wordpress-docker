@@ -29,6 +29,8 @@ connectMySql:
 connectWordpress:
 	docker exec -it wordpress bash;
 
-addHost:
-	echo "Rode este comando logado como root"
+setHost:
 	echo "0.0.0.0 local.workcopy.com.br" >> /etc/hosts
+
+setMySqlEnv:
+	sed -i -e "s,.*DB_HOST.*,define('DB_HOST' \, getenv('MYSQL_PORT_3306_TCP_ADDR'));  ," wp-config.php
