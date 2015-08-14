@@ -3,7 +3,7 @@ import glob
 import re
 
 class Tools( object ):
-    
+
     def patternReplace(self, pattern, string, content):
         return re.sub( pattern, string, content )
 
@@ -42,3 +42,6 @@ class Tools( object ):
 
     def clearScreen(self):
         self.executeSystemCommand('clear')
+
+    def currentFolder(self):
+        return self.executeSystemCommand('pwd')
