@@ -1,19 +1,19 @@
 from tools import *
 
 class Vhost(object):
-    hostFolderName = "vhost/"
-    hostFileName = "host"
-    hostFileExtension = "conf"
-    hostType = ".com.br"
+    # hostFolderName = "vhost/"
+    # hostFileName = "host"
+    # hostFileExtension = "conf"
+    # hostType = ".com.br"
 
 
     def __init__(self):
         self.tools = Tools()
 
-    def set(self, projectName, path ):
-        self.tools.createFolder(projectName +"/"+ self.hostFolderName)
-        fileObject = self.tools.createFile( projectName + "/" + self.hostFolderName + self.hostFileName, self.hostFileExtension )
-        content = self.replaceHostName(projectName, self.getContent(path))
+    def set(self, configObject ):
+        self.tools.createFolder(configObject.hFolderPath)
+        fileObject = self.tools.createFile( configObject.hFile )
+        content = self.replaceHostName(configObject.hHost, self.getContent(configObject.pPathVhost))
         self.tools.writeInFile(fileObject, content)
     
     def printHostMessage(self,host):
@@ -25,4 +25,4 @@ class Vhost(object):
         return self.tools.getFileContents(path[0])
 
     def replaceHostName(self, hostName, content):
-        return content.replace("example", hostName + self.hostType)
+        return content.replace("example", hostName)

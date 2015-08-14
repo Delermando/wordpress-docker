@@ -1,17 +1,17 @@
 from tools import *
 
 class Wordpress( object ):
-    wpSampleConfigFile = "wp-config-sample"
-    wpConfigFile = "wp-config"
-    wpExtension = "php"
-    wp = "wordpress"
+    # wpSampleConfigFile = "wp-config-sample"
+    # wpConfigFile = "wp-config"
+    # wpExtension = "php"
+    # wp = "wordpress"
 
     def __init__( self ):
         self.tools = Tools()
 
-    def setConfig(self,projectName):
-        content = self.tools.getFileContents(projectName + "/"+self.wp+"/"+self.wpSampleConfigFile + "." +self.wpExtension)
-        fileObject = self.tools.createFile( projectName + "/"+self.wp+"/"+self.wpConfigFile, self.wpExtension)
+    def setConfig(self,configObject):
+        content = self.tools.getFileContents( configObject.wSampleConfigFile )
+        fileObject = self.tools.createFile( configObject.wConfigFile )
         content = self.setWpConfigVars(content)
         return self.tools.writeInFile(fileObject, content)
 
@@ -24,3 +24,8 @@ class Wordpress( object ):
     def wpVariablePatter( self,wpVariableName,variableName ):
         return "define('"+wpVariableName+"', getenv('"+variableName+"));"
 
+    def descompress( self, configObject):
+        self.tools.descompressZip( configObject.pPathWordpress, configObject.pPath)
+
+    def createFolder(self, configObject):
+        self.tools.createFolder( configObject.pPath )

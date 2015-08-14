@@ -7,8 +7,8 @@ class Tools( object ):
     def patternReplace(self, pattern, string, content):
         return re.sub( pattern, string, content )
 
-    def createFolder( self, name ):
-        self.executeSystemCommand('mkdir -p ' + name)
+    def createFolder( self, folderName ):
+        self.executeSystemCommand('mkdir -p ' + folderName)
 
     def executeSystemCommand(self, command):
         return os.system( command )
@@ -22,8 +22,8 @@ class Tools( object ):
         self.executeSystemCommand('tar -xvf ' + path[0] + ' -C '+ projectPath)        
     
 
-    def createFile(self, fileName, extension):
-        return open(fileName+"."+extension, "wb")
+    def createFile(self, fileName):
+        return open(fileName, "wb")
 
     def writeInFile(self, fileObject, content):
         return fileObject.write( content)
