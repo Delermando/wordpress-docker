@@ -1,4 +1,6 @@
+from wordpress import *
 from tools import *
+from vhost import *
 
 class Commands( object ):
     filesPath = 'files/'
@@ -7,12 +9,16 @@ class Commands( object ):
     pathVhostBase = filesPath+'baseVhost/'
 
     def __init__( self ):
+        self.wordpress = Wordpress()
         self.tools = Tools()
+        self.vhost = Vhost()
 
-    def startProject(self, projectName):        
-        self.tools.getVhostContent( self.pathVhostBase)
-        self.tools.descompressZip(  self.pathWordpressBase, projectName )
+    def creatProject(self, projectName):        
+        self.tools.createFolder(projectName)
+        self.tools.descompressZip( self.pathWordpressBase, projectName )
         self.tools.descompressTarGz( self.pathBdBase, projectName )
-        self.tools.setVhost(projectName, self.pathVhostBase)
-        self.tools.setWordpressConfig(projectName)
+        self.wordpress.setConfig( projectName )
+        self.vhost.set(projectName, self.pathVhostBase )
+
+        
         
