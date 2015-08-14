@@ -21,7 +21,6 @@ class Config(object):
         self.wConfigFile = self.pPath + self.wPath + self.wConfigFileName + self.wExtension
         self.wSampleConfigFile = self.pPath + self.wPath + self.wSampleConfigFileName + self.wExtension
         
-
         #Vhost Env's
         self.hFolderName = "vhost/"
         self.hFolderPath = self.pPath + self.hFolderName
@@ -30,6 +29,12 @@ class Config(object):
         self.hCategory = ".com.br"
         self.hFile = self.pPath + self.hFolderName+self.hFileName+self.hFileExtension
         self.hHost = self.pName+self.hCategory
+
+        #MySql Env's
+        self.mPassword = 'root'
+        self.mUsername = 'root'
+        self.mDatabase = 'wordpress'
+        self.mHost = '127.0.0.1'        
 
         #Docker Env's
         self.dWordpressName = "-wordpress"
@@ -42,9 +47,7 @@ class Config(object):
         self.dVhostContainerFolder = "/etc/apache2/vhosts"
         self.dMysqlContainerFolder = "/var/lib/mysql"
         self.dApacheContainerFolder = "/var/www/html"
-
-        #MySql Env's
-        self.mEnvPasswordName = 'MYSQL_ROOT_PASSWORD=root'
-        self.mEnvUserName = 'MYSQL_ROOT_USER=root'
-        self.mEnvDatabaseName = 'MYSQL_ROOT_DATABASE=wordpress'
-        self.mEnvHostName = 'MYSQL_ROOT_HOST=127.0.0.1'
+        self.dEnvPassword = 'MYSQL_ROOT_PASSWORD='+self.mPassword
+        self.dEnvUsername = 'MYSQL_ROOT_USER='+self.mUsername
+        self.dEnvDatabase = 'MYSQL_ROOT_DATABASE='+self.mDatabase
+        self.dEnvHost = 'MYSQL_ROOT_HOST='+self.mHost

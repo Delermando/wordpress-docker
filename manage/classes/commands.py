@@ -6,11 +6,7 @@ from docker import *
 from config import *
 
 class Commands( object ):
-    # filesPath = 'files/'
-    # pathBdBase = filesPath+'baseDatabase/'
-    # pathWordpressBase = filesPath+'baseWordpress/'
-    # pathVhostBase = filesPath+'baseVhost/'
-
+    
     def __init__( self ):
         self.wordpress = Wordpress()
         self.mysql = MySql()
@@ -21,11 +17,11 @@ class Commands( object ):
     def creatProject(self, projectName):        
         configObject = self.setConfigObject( projectName )
         #self.docker.up(projectName)
-        self.wordpress.createFolder(configObject)
-        self.mysql.descompress( configObject )
-        self.wordpress.descompress( configObject )
-        self.wordpress.setConfig( configObject )
-        self.vhost.set( configObject )
+        #self.wordpress.createFolder(configObject)
+        #self.mysql.descompress( configObject )
+        #self.wordpress.descompress( configObject )
+        #self.wordpress.setConfig( configObject )
+        #self.vhost.set( configObject )
 
         
     def setConfigObject( self, projectName ):

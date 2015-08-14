@@ -1,11 +1,6 @@
 from tools import *
 
 class Vhost(object):
-    # hostFolderName = "vhost/"
-    # hostFileName = "host"
-    # hostFileExtension = "conf"
-    # hostType = ".com.br"
-
 
     def __init__(self):
         self.tools = Tools()

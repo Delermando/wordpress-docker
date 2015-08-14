@@ -1,36 +1,52 @@
 class Docker(object):
 
-    # wordpressName = "-wordpress"
-    # mysqlName = "-mysql"
-    # ip = "127.0.0.2"
-    # port = "80"
-    # wordpressImage = "rtancman/php:php53-apache22"
-    # mysqlImage = "mysql:5.5"
-    # projectFolder = "teste"
-    # vhostContainerFolder = "/etc/apache2/vhosts"
-    # mysqlContainerFolder = "/var/lib/mysql"
-    # containerApacheFolder = "/var/www/html"
-
-    # mysqlPass = 'MYSQL_ROOT_PASSWORD=root'
-    # mysqlUser = 'MYSQL_ROOT_USER=root'
-    # mysqlDb = 'MYSQL_ROOT_DATABASE=wordpress'
-    # mysqlHost = 'MYSQL_ROOT_HOST=127.0.0.1'
-
-    def up(self, projectName):
-        self.upWordpress(projectName)
+    def up(self, configObject):
+        #self.upWordpress(projectName)
         self.upMySql(projectName)
-        
-        
-    
+                
     def upWordpress( self, projectName):
         #--name='"+ self.wordpressName + "'
         command = "docker run -d   --privileged=true  --link "+ self.mysqlName +":mysql  -p "+self.ip+":"+self.port+":"+self.port+" -v "+self.projectFolder+"/vhost:"+self.vhostContainerFolder+":rw -v "+self.projectFolder+"/wordpress:"+self.containerApacheFolder+":rw "+self.wordpressImage+";" 
         print(command)
 
-    def upMySql( self, projectName ):
+    def upMySql( self, configObject ):
         #--name='"+self.mysqlName+"'
-        command = "docker run -d   -e "+self.mysqlPass+" -e "+self.mysqlUser+"  -e "+self.mysqlDb+"  -e "+self.mysqlHost+" -p "+self.ip+":"+self.port+":"+self.port+" -v "+self.projectFolder+"/mysql-data/var/lib/mysql:"+self.mysqlContainerFolder+":rw  "+self.mysqlImage+";" 
+        command = "docker run -d   -e "
+        +configObject.dEnvUsername+
+        " -e "
+        +configObject.dEnvPassword+
+        "  -e "
+        +configObject.dEnvDatabase+
+        "  -e "
+        +configObject.dEnvHost+
+        " -p "
+        +configObject.dEnvPassword+
+        ":"
+        +configObject.dEnvPassword+
+        ":"
+        +configObject.dEnvPassword+
+        " -v "
+        +configObject.dEnvPassword+
+        "/mysql-data/var/lib/mysql:"
+        +configObject.dEnvPassword+
+        ":rw  "
+        +configObject.dEnvPassword+
+        ";" 
+
         print(command)
 
-
-    
+        #Docker Env's
+        self.dWordpressName = "-wordpress"
+        self.dMysqlName = "-mysql"
+        self.dHost = "127.0.0.2"
+        self.dPort = "80"
+        self.dWordpressImage = "rtancman/php:php53-apache22"
+        self.dMysqlImage = "mysql:5.5"
+        self.dProjectFolder = "teste"
+        self.dVhostContainerFolder = "/etc/apache2/vhosts"
+        self.dMysqlContainerFolder = "/var/lib/mysql"
+        self.dApacheContainerFolder = "/var/www/html"
+        self.dEnvPassword = 'MYSQL_ROOT_PASSWORD='+self.mPassword
+        self.dEnvUsername = 'MYSQL_ROOT_USER='+self.mUsername
+        self.dEnvDatabase = 'MYSQL_ROOT_DATABASE='+self.mDatabase
+        self.dEnvHost = 'MYSQL_ROOT_HOST='+self.mHost

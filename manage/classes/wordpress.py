@@ -1,11 +1,7 @@
 from tools import *
 
 class Wordpress( object ):
-    # wpSampleConfigFile = "wp-config-sample"
-    # wpConfigFile = "wp-config"
-    # wpExtension = "php"
-    # wp = "wordpress"
-
+    
     def __init__( self ):
         self.tools = Tools()
 
