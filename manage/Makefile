@@ -1,6 +1,6 @@
 up:
-	docker run -d  --name="mysql55-wordpress"  -e MYSQL_ROOT_PASSWORD=root -p 3306:3306    -v `pwd`/mysql-data/var/lib/mysql:/var/lib/mysql:rw  mysql:5.5;
-	docker run -d   --privileged=true --name="wordpress" --link mysql55-wordpress:mysql  -p 80:80  -v `pwd`/vhosts:/etc/apache2/vhosts:rw    -v `pwd`/wordpress:/var/www/html:rw rtancman/php:php53-apache22;
+	docker run -d  --name="mysql55-wordpress2"  -e MYSQL_ROOT_PASSWORD=root -p 127.0.0.2:3306:3306    -v `pwd`/mysql-data/var/lib/mysql:/var/lib/mysql:rw  mysql:5.5;
+	docker run -d   --privileged=true --name="wordpress2" --link mysql55-wordpress2:mysql  -p 127.0.0.2:80:80 -v `pwd`/vhosts:/etc/apache2/vhosts:rw    -v `pwd`/wordpress:/var/www/html:rw rtancman/php:php53-apache22;
 
 down:
 	docker rm wordpress mysql55-wordpress;
@@ -43,3 +43,6 @@ descompressMySql:
 	tar -xvf mysql-data.tar.gz
 descompressWordpress:
 	unzip `ls | grep .*wordpres.*zip`  -d `pwd`
+
+manage:
+	python manage.py
