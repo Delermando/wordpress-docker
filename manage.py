@@ -1,4 +1,4 @@
-from manage.commands import *
+from manage.classes import *
 import sys
 
 

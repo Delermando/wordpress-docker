@@ -5,4 +5,5 @@ class MySql():
         self.tools = Tools()
 
     def descompress( self, configObject ):
+        print(configObject.pPathBatabase)
         self.tools.descompressTarGz( configObject.pPathBatabase, configObject.pPath)

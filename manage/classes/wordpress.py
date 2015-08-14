@@ -25,6 +25,7 @@ class Wordpress( object ):
         return "define('"+wpVariableName+"', getenv('"+variableName+"));"
 
     def descompress( self, configObject):
+        print(configObject.pPathWordpress)
         self.tools.descompressZip( configObject.pPathWordpress, configObject.pPath)
 
     def createFolder(self, configObject):

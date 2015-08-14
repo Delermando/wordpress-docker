@@ -2,12 +2,15 @@ class Config(object):
     
     def __init__( self, projectName ):
         #Project Env
+        self.pMangeFolder = "manage/"
+        self.pProjectsFolder = "projects/"
+        self.pClassesFolder = "classes/"
         self.pName = projectName
-        self.pPath = self.pName+"/"
-        self.pFiles = 'files/'
-        self.pPathBatabase = self.pFiles+'baseDatabase/'
-        self.pPathWordpress = self.pFiles+'baseWordpress/'
-        self.pPathVhost = self.pFiles+'baseVhost/'
+        self.pPath = self.pProjectsFolder + self.pName+"/"
+        self.pFilesFolder = 'files/'
+        self.pPathBatabase = self.pMangeFolder + self.pFilesFolder+'baseDatabase/'
+        self.pPathWordpress = self.pMangeFolder + self.pFilesFolder+'baseWordpress/'
+        self.pPathVhost = self.pMangeFolder + self.pFilesFolder+'baseVhost/'
 
         #Wordpress Env's
         self.wName = "wordpress"
@@ -17,7 +20,6 @@ class Config(object):
         self.wExtension = ".php"
         self.wConfigFile = self.pPath + self.wPath + self.wConfigFileName + self.wExtension
         self.wSampleConfigFile = self.pPath + self.wPath + self.wSampleConfigFileName + self.wExtension
-        
         
 
         #Vhost Env's
