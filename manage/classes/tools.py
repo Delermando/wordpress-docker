@@ -41,7 +41,7 @@ class Tools( object ):
         return glob.glob(path + '*')
 
     def clearScreen(self):
-        self.executeSystemCommand('clear')
+        return self.executeSystemCommand('clear')
 
     def currentFolder(self):
-        return self.executeSystemCommand('pwd')
+        return os.getcwd()+"/"

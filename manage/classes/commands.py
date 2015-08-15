@@ -16,12 +16,12 @@ class Commands( object ):
 
     def creatProject(self, projectName):        
         configObject = self.setConfigObject( projectName )
-        #self.docker.up(projectName)
-        #self.wordpress.createFolder(configObject)
-        #self.mysql.descompress( configObject )
-        #self.wordpress.descompress( configObject )
-        #self.wordpress.setConfig( configObject )
-        #self.vhost.set( configObject )
+        self.wordpress.createFolder(configObject)
+        self.mysql.descompress( configObject )
+        self.wordpress.descompress( configObject )
+        self.wordpress.setConfig( configObject )
+        self.vhost.set( configObject )
+        self.docker.up(configObject)
 
         
     def setConfigObject( self, projectName ):
