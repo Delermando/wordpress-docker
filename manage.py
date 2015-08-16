@@ -3,5 +3,9 @@ import sys
 
 
 commands = Commands()
-arg = sys.argv
-commands.creatProject( arg[1] )
+args = sys.argv
+commands.initCli( args )
+
+
+
+

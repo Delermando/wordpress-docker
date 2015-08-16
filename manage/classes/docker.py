@@ -6,9 +6,18 @@ class Docker(object):
         self.tools = Tools()
 
     def up(self, configObject):
-        self.tools.executeSystemCommand(self.upMySql(configObject))
-        self.tools.executeSystemCommand(self.upWordpress(configObject))
-                
+        self.tools.executeSystemCommand(self.upMySql( configObject ))
+        self.tools.executeSystemCommand(self.upWordpress( configObject ))
+    
+    def killAll(self):
+        self.tools.executeSystemCommand("docker kill $(docker ps -a -q)")
+
+    def rmAll(self):
+        self.tools.executeSystemCommand("docker rm $(docker ps -a -q)")    
+
+    def showAll(self):
+        self.tools.executeSystemCommand("docker ps -a")
+
     def upWordpress( self, configObject):
         var = (
             configObject.dWordpressContainerName,
