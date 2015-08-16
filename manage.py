@@ -5,7 +5,3 @@ import sys
 commands = Commands()
 args = sys.argv
 commands.initCli( args )
-
-
-
-

@@ -47,7 +47,7 @@ class Config(object):
         self.dVhostDataPath =  self.tools.currentFolder() + self.pPath+self.hFolderName
         self.dWordpressName = "-wordpress"
         self.dMysqlName = "-mysql"
-        self.dHost = "127.0.0.4"
+        self.dHost = "127.0.0.2"
         self.dApachePort = "80"
         self.dMysqlPort = "3306"
         self.dWordpressImage = "rtancman/php:php53-apache22"

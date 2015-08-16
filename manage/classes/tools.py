@@ -1,6 +1,7 @@
 import os
 import glob
 import re
+import socket
 
 class Tools( object ):
 
@@ -26,6 +27,14 @@ class Tools( object ):
 
     def checkParamPosition(self,args, param, position):
         if( len(args) == position + 2 and args[position] == param  and args[position + 1] != ''):
+            return True
+        else:
+            return False
+
+    def getIpStatusOnPort(self, ip, port):
+        soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        status = soc.connect_ex((ip, port))
+        if status == 0:
             return True
         else:
             return False
