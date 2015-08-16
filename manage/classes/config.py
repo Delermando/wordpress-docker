@@ -47,12 +47,12 @@ class Config(object):
         self.dVhostDataPath =  self.tools.currentFolder() + self.pPath+self.hFolderName
         self.dWordpressName = "-wordpress"
         self.dMysqlName = "-mysql"
-        self.dHost = "127.0.0.3"
+        self.dHost = "127.0.0.4"
         self.dApachePort = "80"
         self.dMysqlPort = "3306"
         self.dWordpressImage = "rtancman/php:php53-apache22"
-        self.dWordpressContainerName = self.pName+"-"+self.dWordpressName
-        self.dWMysqlContainerName = self.pName+"-"+self.dMysqlName
+        self.dWordpressContainerName = self.pName + self.dWordpressName
+        self.dWMysqlContainerName = self.pName + self.dMysqlName
         self.dMysqlImage = "mysql:5.5"
         self.dProjectFolder = "teste"
         self.dVhostContainerFolder = "/etc/apache2/vhosts"
@@ -61,4 +61,4 @@ class Config(object):
         self.dEnvPassword = 'MYSQL_ROOT_PASSWORD='+self.mPassword
         self.dEnvUsername = 'MYSQL_ROOT_USER='+self.mUsername
         self.dEnvDatabase = 'MYSQL_ROOT_DATABASE='+self.mDatabase
-        self.dEnvHost = 'MYSQL_ROOT_HOST='+self.mHost
+        self.dEnvHost = 'MYSQL_ROOT_HOST='+self.dHost
