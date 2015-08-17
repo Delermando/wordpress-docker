@@ -2,8 +2,10 @@ import os
 import glob
 import re
 import socket
+from ConfigParser import SafeConfigParser, ConfigParser
 
 class Tools( object ):
+
 
     def executeFunctionFromClass(self, classe, functionName ):
         getattr(classe, functionName)()
@@ -78,7 +80,7 @@ class Tools( object ):
         path = self.listFiles( filePath )
         self.executeSystemCommand('tar -xvf ' + path[0] + ' -C '+ projectPath)        
 
-    def createFile(self, fileName):
+    def openFile(self, fileName):
         return open(fileName, "wb")
 
     def writeInFile(self, fileObject, content):

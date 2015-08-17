@@ -14,6 +14,8 @@ class Config(object):
         self.pPathBatabase = self.pMangeFolder + self.pFilesFolder+'baseDatabase/'
         self.pPathWordpress = self.pMangeFolder + self.pFilesFolder+'baseWordpress/'
         self.pPathVhost = self.pMangeFolder + self.pFilesFolder+'baseVhost/'
+        self.confFile = 'config.ini'
+        self.confSection = 'wp-'+ self.pName
 
         #Wordpress Env's
         self.wName = "wordpress"
@@ -47,7 +49,7 @@ class Config(object):
         self.dVhostDataPath =  self.tools.currentFolder() + self.pPath+self.hFolderName
         self.dWordpressName = "-wordpress"
         self.dMysqlName = "-mysql"
-        self.dHost = "127.0.0.2"
+        self.dHost = "127.0.0.3"
         self.dApachePort = "80"
         self.dMysqlPort = "3306"
         self.dWordpressImage = "rtancman/php:php53-apache22"

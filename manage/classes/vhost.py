@@ -7,7 +7,7 @@ class Vhost(object):
 
     def set(self, configObject ):
         self.tools.createFolder(configObject.hFolderPath)
-        fileObject = self.tools.createFile( configObject.hFile )
+        fileObject = self.tools.openFile( configObject.hFile )
         content = self.replaceHostName(configObject.hHost, self.getContent(configObject.pPathVhost))
         self.tools.writeInFile(fileObject, content)
     

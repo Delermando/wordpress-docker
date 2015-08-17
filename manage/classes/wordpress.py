@@ -7,7 +7,7 @@ class Wordpress( object ):
 
     def setConfig(self,configObject):
         content = self.tools.getFileContents( configObject.wSampleConfigFile )
-        fileObject = self.tools.createFile( configObject.wConfigFile )
+        fileObject = self.tools.openFile( configObject.wConfigFile )
         content = self.setWpConfigVars(content)
         return self.tools.writeInFile(fileObject, content)
 
