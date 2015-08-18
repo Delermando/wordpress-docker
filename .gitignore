@@ -1,2 +1,4 @@
-mysql-data/
+projects/
+
 *.pyc
+config.ini

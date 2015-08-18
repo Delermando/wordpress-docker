@@ -19,6 +19,7 @@ class Docker(object):
         self.tools.executeSystemCommand("docker ps -a")
 
     def upWordpress( self, configObject):
+
         var = (
             configObject.dWordpressContainerName,
             configObject.dWMysqlContainerName,
@@ -26,7 +27,8 @@ class Docker(object):
             configObject.dEnvPassword, 
             configObject.dEnvDatabase, 
             configObject.dEnvHost, 
-            configObject.dHost,
+            self.tools.getEnableIpOnPort(80),
+            #configObject.dHost,
             configObject.dApachePort,
             configObject.dApachePort,
             configObject.dVhostDataPath,
@@ -40,7 +42,8 @@ class Docker(object):
     def upMySql( self, configObject ):
         var = (
             configObject.dWMysqlContainerName,
-            configObject.dHost, 
+            #configObject.dHost, 
+            self.tools.getEnableIpOnPort(3306),
             configObject.dMysqlPort, 
             configObject.dMysqlPort, 
             configObject.dMysqlDataPath, 

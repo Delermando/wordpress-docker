@@ -2,6 +2,7 @@ import os
 import glob
 import re
 import socket
+import sys
 from ConfigParser import SafeConfigParser, ConfigParser
 
 class Tools( object ):
@@ -32,14 +33,23 @@ class Tools( object ):
             return True
         else:
             return False
+    def getEnableIpOnPort(self, port):
+        for i in range(1,255):
+            ip = '127.0.0.' + str(i)
+            result = self.getIpStatusOnPort(ip, port)
+            if(result):
+                return ip
+
+        return '127.0.0.3'
+
 
     def getIpStatusOnPort(self, ip, port):
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         status = soc.connect_ex((ip, port))
         if status == 0:
-            return True
-        else:
             return False
+        else:
+            return True
 
     def checkKillAll(self, commands, args):
         self.executeFunctionPosition(args,'-killAll', 1, commands, 'killAll')

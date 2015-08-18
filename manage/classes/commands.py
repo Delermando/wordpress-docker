@@ -22,6 +22,7 @@ class Commands( object ):
         self.tools.cli(self, args)
 
     def createProject(self, projectName):        
+        #self.tools.getEnableIpOnPort(3306)
         configObject = self.setConfigObject( projectName )
         self.setConfigFile(projectName)
         self.wordpress.createFolder(configObject)
