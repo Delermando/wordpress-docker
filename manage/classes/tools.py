@@ -33,14 +33,15 @@ class Tools( object ):
             return True
         else:
             return False
+
     def getEnableIpOnPort(self, port):
         for i in range(1,255):
             ip = '127.0.0.' + str(i)
-            result = self.getIpStatusOnPort(ip, port)
+            result = self.getIpStatusOnPort(ip, int(port))
             if(result):
                 return ip
 
-        return '127.0.0.3'
+        return '127.0.0.1'
 
 
     def getIpStatusOnPort(self, ip, port):

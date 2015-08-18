@@ -38,8 +38,7 @@ class Config(object):
         #MySql Env's
         self.mPassword = 'root'
         self.mUsername = 'root'
-        self.mDatabase = 'wordpress'
-        self.mHost = '127.0.0.1'        
+        self.mDatabase = 'wordpress'   
         self.mDataFolder = 'mysql-data/var'        
         
 
@@ -49,9 +48,10 @@ class Config(object):
         self.dVhostDataPath =  self.tools.currentFolder() + self.pPath+self.hFolderName
         self.dWordpressName = "-wordpress"
         self.dMysqlName = "-mysql"
-        self.dHost = "127.0.0.3"
         self.dApachePort = "80"
+        self.dApacheHost = self.tools.getEnableIpOnPort(self.dApachePort)
         self.dMysqlPort = "3306"
+        self.dMysqlHost = self.dApacheHost = self.tools.getEnableIpOnPort(self.dApachePort)
         self.dWordpressImage = "rtancman/php:php53-apache22"
         self.dWordpressContainerName = self.pName + self.dWordpressName
         self.dWMysqlContainerName = self.pName + self.dMysqlName
@@ -63,4 +63,4 @@ class Config(object):
         self.dEnvPassword = 'MYSQL_ROOT_PASSWORD='+self.mPassword
         self.dEnvUsername = 'MYSQL_ROOT_USER='+self.mUsername
         self.dEnvDatabase = 'MYSQL_ROOT_DATABASE='+self.mDatabase
-        self.dEnvHost = 'MYSQL_ROOT_HOST='+self.dHost
+        self.dEnvHost = 'MYSQL_ROOT_HOST='+self.dMysqlHost

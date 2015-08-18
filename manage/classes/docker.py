@@ -27,8 +27,7 @@ class Docker(object):
             configObject.dEnvPassword, 
             configObject.dEnvDatabase, 
             configObject.dEnvHost, 
-            self.tools.getEnableIpOnPort(80),
-            #configObject.dHost,
+            configObject.dApacheHost,
             configObject.dApachePort,
             configObject.dApachePort,
             configObject.dVhostDataPath,
@@ -42,8 +41,7 @@ class Docker(object):
     def upMySql( self, configObject ):
         var = (
             configObject.dWMysqlContainerName,
-            #configObject.dHost, 
-            self.tools.getEnableIpOnPort(3306),
+            configObject.dMysqlHost, 
             configObject.dMysqlPort, 
             configObject.dMysqlPort, 
             configObject.dMysqlDataPath, 
