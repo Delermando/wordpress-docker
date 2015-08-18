@@ -18,6 +18,7 @@ class Tools( object ):
             self.checkRmAll( commands, args )
             self.checkShowll( commands, args )
             self.checkDeleteAllProjects(args)
+            self.checkListProjectsAll(commands, args)
 
     def delete(self, path):
         self.executeSystemCommand("rm -r " + path)
@@ -54,6 +55,9 @@ class Tools( object ):
 
     def checkKillAll(self, commands, args):
         self.executeFunctionPosition(args,'-killAll', 1, commands, 'killAll')
+    
+    def checkListProjectsAll(self, commands, args):
+        self.executeFunctionPosition(args,'-listProjects', 1, commands, 'listProjects')
     
     def checkRmAll(self, commands, args):
         self.executeFunctionPosition(args,'-rmAll', 1, commands, 'rmAll')    
@@ -114,3 +118,22 @@ class Tools( object ):
 
     def currentFolder(self):
         return os.getcwd()+"/"
+
+    def setConfigFile(self, projectName):       
+        configObject = self.setConfigObject( projectName )
+        configFile = open(configObject.confFile, 'a')
+        self.configParser.add_section(configObject.confSection)
+        self.configParser.set(configObject.confSection, 'name', configObject.pName)
+        self.configParser.set(configObject.confSection, 'path', configObject.dWordpressDataPath)
+        self.configParser.write(configFile)
+        configFile.close()
+        
+    def getDataFromSection(self,configFile, section, param):
+        configParser = ConfigParser() 
+        configParser.read( configFile )
+        return configParser.get(section, param)
+
+    def getSectionsFromConfigFile(self, configFile):
+        configParser = ConfigParser() 
+        configParser.read( configFile )
+        return configParser._sections.keys()
